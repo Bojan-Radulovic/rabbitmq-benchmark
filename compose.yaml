@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web-ui:
+    container_name: 'app-web'
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - rabbitmq
+      - mongodb
+
+  app-worker:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    depends_on:
+      - rabbitmq
+      - mongodb
+
+  rabbitmq:
+    image: "rabbitmq:3.8"
+    container_name: 'rabbitmq'
+    ports:
+      - "5672:5672"
+
+  mongodb:
+    image: "mongo:latest"
+    container_name: 'mongodb'
+    ports:
+      - "27017:27017"

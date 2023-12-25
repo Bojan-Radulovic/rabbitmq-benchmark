@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask RabbitMQ Benchmarking tool</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        .data-container {
+            max-height: 250px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .data {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .data li {
+            margin-bottom: 10px;
+        }
+
+        .record-count {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #please-wait-message {
+            display: none;
+            font-weight: bold;
+            color: blue;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flask RabbitMQ Benchmarking tool</h1>
+
+    <form action="/write-database" method="get" onsubmit="showPleaseWaitMessage()">
+        <label for="num-events">Worker sleep time:</label>
+        <input type="number" id="sleep-time" name="sleep_time" value="0" min="0" step="0.1" required>
+        <button type="submit">Add Random Event to Database</button>
+    </form>
+
+    <div class="data-container" id="inserted-data-container">
+        {% if inserted_data %}
+            <h2>Inserted Data:</h2>
+            <ul class="data">
+                {% for data in inserted_data %}
+                    <li>Time inserted: {{ data.time_inserted }}, User ID: {{ data.user_id }}, Date: {{ data.date }}, Event Text: {{ data.event_text }}, Event ID {{ data._id }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <form action="/ab-benchmark" method="get" onsubmit="showPleaseWaitMessage()">
+        <label for="requests">Number of Requests:</label>
+        <input type="number" id="requests" name="requests" value="100" min="1" required>
+        <label for="concurrency">Concurrency:</label>
+        <input type="number" id="concurrency" name="concurrency" value="5" min="1" required>
+        <label for="num-events">Worker sleep time:</label>
+        <input type="number" id="sleep-time" name="sleep_time" value="1" min="0" step="0.1" required>
+        <button type="submit" id="ab-test-button">Start Benchmarking</button>
+    </form>
+
+    <div class="data-container" id="ab-result-container">
+        {% if ab_result %}
+            <h2>Benchmarking Results:</h2>
+            <p>Command: {{ ab_result['command'] }}</p>
+            <p>Number of Workers: {{ ab_result['worker_count'] }}</p>
+            <p>Worker Sleep Time: {{ ab_result['sleep_time'] }} seconds</p>
+            <h3>Results:</h3>
+            <pre>{{ ab_result['result'] }}</pre>
+        {% endif %}
+    </div>
+
+    <form action="/read-database" method="get" onsubmit="showPleaseWaitMessage()">
+        <button type="submit">Read Database</button>
+    </form>
+
+    <div class="data-container" id="database-data-container">
+        {% if database_data %}
+            <h2>Database Data:</h2>
+            <div class="record-count">Number of Records: {{ database_data|length }}</div>
+            <ul class="data">
+                {% for data in database_data %}
+                    <li>Time inserted: {{ data.time_inserted }}, User ID: {{ data.user_id }}, Date: {{ data.date }}, Event Text: {{ data.event_text }}, Event ID {{ data._id }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div id="please-wait-message">Please wait...</div>
+
+    <script>
+        if (document.getElementById('inserted-data-container').querySelector('li')) {
+            document.getElementById('inserted-data-container').style.display = 'block';
+        }
+        if (document.getElementById('database-data-container').querySelector('li')) {
+            document.getElementById('database-data-container').style.display = 'block';
+        }
+        if (document.getElementById('ab-result-container').querySelector('pre')) {
+            document.getElementById('ab-result-container').style.display = 'block';
+        }
+
+        function showPleaseWaitMessage() {
+            document.getElementById('please-wait-message').style.display = 'block';
+            var buttons = document.getElementsByTagName('button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>

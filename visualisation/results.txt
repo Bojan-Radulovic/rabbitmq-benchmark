@@ -1,0 +1,314 @@
+Benchmarking Results:
+Command: ab -c 5 -n 1000 -l http://127.0.0.1:5000/write-database?sleep_time=0.1
+
+Number of Workers: 1
+
+Worker Sleep Time: 0.1 seconds
+
+Results:
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+
+
+Server Software:        Werkzeug/3.0.1
+Server Hostname:        127.0.0.1
+Server Port:            5000
+
+Document Path:          /write-database?sleep_time=0.1
+Document Length:        Variable
+
+Concurrency Level:      5
+Time taken for tests:   104.184 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      3910773 bytes
+HTML transferred:       3736773 bytes
+Requests per second:    9.60 [#/sec] (mean)
+Time per request:       520.918 [ms] (mean)
+Time per request:       104.184 [ms] (mean, across all concurrent requests)
+Transfer rate:          36.66 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   190  519  16.6    520     610
+Waiting:      176  508  16.7    509     599
+Total:        190  519  16.6    520     610
+
+Percentage of the requests served within a certain time (ms)
+  50%    520
+  66%    521
+  75%    521
+  80%    522
+  90%    523
+  95%    524
+  98%    525
+  99%    527
+ 100%    610 (longest request)
+
+
+
+Benchmarking Results:
+Command: ab -c 5 -n 1000 -l http://127.0.0.1:5000/write-database?sleep_time=0.1
+
+Number of Workers: 2
+
+Worker Sleep Time: 0.1 seconds
+
+Results:
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+
+
+Server Software:        Werkzeug/3.0.1
+Server Hostname:        127.0.0.1
+Server Port:            5000
+
+Document Path:          /write-database?sleep_time=0.1
+Document Length:        Variable
+
+Concurrency Level:      5
+Time taken for tests:   52.551 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      3910752 bytes
+HTML transferred:       3736752 bytes
+Requests per second:    19.03 [#/sec] (mean)
+Time per request:       262.754 [ms] (mean)
+Time per request:       52.551 [ms] (mean, across all concurrent requests)
+Transfer rate:          72.67 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       1
+Processing:   213  261  11.6    261     408
+Waiting:      201  251  11.6    250     397
+Total:        213  261  11.6    261     408
+
+Percentage of the requests served within a certain time (ms)
+  50%    261
+  66%    263
+  75%    265
+  80%    266
+  90%    271
+  95%    279
+  98%    290
+  99%    295
+ 100%    408 (longest request)
+
+
+
+Benchmarking Results:
+Command: ab -c 5 -n 1000 -l http://127.0.0.1:5000/write-database?sleep_time=0.1
+
+Number of Workers: 3
+
+Worker Sleep Time: 0.1 seconds
+
+Results:
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+
+
+Server Software:        Werkzeug/3.0.1
+Server Hostname:        127.0.0.1
+Server Port:            5000
+
+Document Path:          /write-database?sleep_time=0.1
+Document Length:        Variable
+
+Concurrency Level:      5
+Time taken for tests:   36.964 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      3910688 bytes
+HTML transferred:       3736688 bytes
+Requests per second:    27.05 [#/sec] (mean)
+Time per request:       184.819 [ms] (mean)
+Time per request:       36.964 [ms] (mean, across all concurrent requests)
+Transfer rate:          103.32 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       1
+Processing:   155  184  17.7    180     319
+Waiting:      145  172  17.4    169     308
+Total:        156  184  17.7    180     319
+
+Percentage of the requests served within a certain time (ms)
+  50%    180
+  66%    188
+  75%    191
+  80%    194
+  90%    204
+  95%    216
+  98%    234
+  99%    244
+ 100%    319 (longest request)
+
+
+
+Benchmarking Results:
+Command: ab -c 5 -n 1000 -l http://127.0.0.1:5000/write-database?sleep_time=0.1
+
+Number of Workers: 4
+
+Worker Sleep Time: 0.1 seconds
+
+Results:
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+
+
+Server Software:        Werkzeug/3.0.1
+Server Hostname:        127.0.0.1
+Server Port:            5000
+
+Document Path:          /write-database?sleep_time=0.1
+Document Length:        Variable
+
+Concurrency Level:      5
+Time taken for tests:   35.424 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      3910733 bytes
+HTML transferred:       3736733 bytes
+Requests per second:    28.23 [#/sec] (mean)
+Time per request:       177.120 [ms] (mean)
+Time per request:       35.424 [ms] (mean, across all concurrent requests)
+Transfer rate:          107.81 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       1
+Processing:   149  176  17.6    171     316
+Waiting:      139  164  16.9    160     305
+Total:        149  176  17.6    171     316
+
+Percentage of the requests served within a certain time (ms)
+  50%    171
+  66%    178
+  75%    183
+  80%    186
+  90%    197
+  95%    214
+  98%    228
+  99%    234
+ 100%    316 (longest request)
+
+
+
+Benchmarking Results:
+Command: ab -c 5 -n 1000 -l http://127.0.0.1:5000/write-database?sleep_time=0.1
+
+Number of Workers: 5
+
+Worker Sleep Time: 0.1 seconds
+
+Results:
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+
+
+Server Software:        Werkzeug/3.0.1
+Server Hostname:        127.0.0.1
+Server Port:            5000
+
+Document Path:          /write-database?sleep_time=0.1
+Document Length:        Variable
+
+Concurrency Level:      5
+Time taken for tests:   36.021 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      3910844 bytes
+HTML transferred:       3736844 bytes
+Requests per second:    27.76 [#/sec] (mean)
+Time per request:       180.106 [ms] (mean)
+Time per request:       36.021 [ms] (mean, across all concurrent requests)
+Transfer rate:          106.03 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       1
+Processing:   150  179  18.3    175     280
+Waiting:      139  167  17.7    163     269
+Total:        150  179  18.3    175     280
+
+Percentage of the requests served within a certain time (ms)
+  50%    175
+  66%    181
+  75%    186
+  80%    190
+  90%    201
+  95%    217
+  98%    233
+  99%    247
+ 100%    280 (longest request)
+
+
+Benchmarking Results:
+Command: ab -c 5 -n 1000 -l http://127.0.0.1:5000/write-database?sleep_time=0.1
+
+Number of Workers: 6
+
+Worker Sleep Time: 0.1 seconds
+
+Results:
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+
+
+Server Software:        Werkzeug/3.0.1
+Server Hostname:        127.0.0.1
+Server Port:            5000
+
+Document Path:          /write-database?sleep_time=0.1
+Document Length:        Variable
+
+Concurrency Level:      5
+Time taken for tests:   36.517 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      3910784 bytes
+HTML transferred:       3736784 bytes
+Requests per second:    27.38 [#/sec] (mean)
+Time per request:       182.586 [ms] (mean)
+Time per request:       36.517 [ms] (mean, across all concurrent requests)
+Transfer rate:          104.58 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       1
+Processing:   151  181  18.7    177     278
+Waiting:      140  169  18.0    166     264
+Total:        151  181  18.7    178     279
+
+Percentage of the requests served within a certain time (ms)
+  50%    178
+  66%    185
+  75%    189
+  80%    193
+  90%    205
+  95%    215
+  98%    242
+  99%    250
+ 100%    279 (longest request)
